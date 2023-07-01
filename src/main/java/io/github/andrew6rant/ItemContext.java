@@ -25,22 +25,16 @@ public class ItemContext {
 
     public static List<TickerElement> elements = new ArrayList<>();
 
-    //@Config(description = "Switch the armor display to the off hand side and the hand display to the main hand side")
     public static boolean invert = false;
 
-    //@Config
     public static int shiftLeft = 0;
-    //Config
     public static int shiftRight = 0;
 
-    //@Config
     public static boolean enableMainHand = true;
-    //@Config
     public static boolean enableOffHand = true;
-    //@Config
     public static boolean enableArmor = true;
 
-    //@Override (wasn't static before)
+
     public static void configChanged() {
         elements = new ArrayList<>();
 
@@ -146,8 +140,6 @@ public class ItemContext {
 
                 ItemStack stack = getRenderedStack(player);
 
-                //client.getItemRenderer().renderAndDecorateItem(stack, (int) x, (int) y);
-                //client.getItemRenderer().renderGuiItemDecorations(Minecraft.getInstance().font, stack, (int) x, (int) y);
                 context.drawItem(stack, (int)x, (int)y);
                 context.drawItemInSlot(client.textRenderer, stack, (int) x, (int) y);
             }
@@ -155,7 +147,6 @@ public class ItemContext {
 
         public boolean shouldChange(ItemStack currStack, ItemStack prevStack, int currentTotal, int pastTotal) {
             return !areItemsEqual(prevStack, currStack) || (currStack.isDamageable() && currStack.getDamage() != prevStack.getDamage()) || currentTotal != pastTotal;
-            //return !prevStack.sameItem(currStack) || (currStack.isDamageableItem() && currStack.getDamageValue() != prevStack.getDamageValue()) || currentTotal != pastTotal;
         }
 
         public ItemStack getStack(PlayerEntity player) {
@@ -183,10 +174,6 @@ public class ItemContext {
                     returnStack = ItemStack.EMPTY;
                 }
             }
-
-            //UsageTickerEvent.GetStack event = new GetStack(slot, returnStack, stack, count, renderPass, player);
-            //MinecraftForge.EVENT_BUS.post(event);
-            //return event.isCanceled() ? ItemStack.EMPTY : event.getResultStack();
             return returnStack;
         }
 
@@ -212,9 +199,6 @@ public class ItemContext {
                 val = Math.max(total, displayStack.getCount());
             }
 
-            //UsageTickerEvent.GetCount event = new GetCount(slot, displayStack, original, val, renderPass, player);
-            //MinecraftForge.EVENT_BUS.post(event);
-            //return event.isCanceled() ? 0 : event.getResultCount();
             return val;
         }
 
