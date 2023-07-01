@@ -1,0 +1,34 @@
+{
+	"schemaVersion": 1,
+	"id": "itemcontext",
+	"version": "${version}",
+	"name": "ItemContext",
+	"description": "This is an example description! Tell everyone what your mod is about!",
+	"authors": [
+		"Andrew6rant (Andrew Grant)"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "",
+	"icon": "assets/itemcontext/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"client": [
+			"io.github.andrew6rant.ItemContextClient"
+		]
+	},
+	"mixins": [
+		"itemcontext.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.14.21",
+		"minecraft": "~1.20.1",
+		"java": ">=17",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
