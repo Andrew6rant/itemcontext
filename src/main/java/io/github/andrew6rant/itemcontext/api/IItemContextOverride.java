@@ -1,4 +1,4 @@
-package io.github.andrew6rant.api;
+package io.github.andrew6rant.itemcontext.api;
 import net.minecraft.item.ItemStack;
 
 import java.util.function.Predicate;

@@ -3,7 +3,7 @@
 	"id": "itemcontext",
 	"version": "${version}",
 	"name": "ItemContext",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"description": "Port of Quark's UsageTicker module to the Fabric modloader",
 	"authors": [
 		"Andrew6rant (Andrew Grant)"
 	],
@@ -16,12 +16,12 @@
 	"environment": "*",
 	"entrypoints": {
 		"client": [
-			"io.github.andrew6rant.ItemContextClient"
+          "io.github.andrew6rant.itemcontext.ItemContextClient"
+		],
+		"modmenu": [
+			"io.github.andrew6rant.itemcontext.config.ConfigEntrypoint"
 		]
 	},
-	"mixins": [
-		"itemcontext.mixins.json"
-	],
 	"depends": {
 		"fabricloader": ">=0.14.21",
 		"minecraft": "~1.20.1",

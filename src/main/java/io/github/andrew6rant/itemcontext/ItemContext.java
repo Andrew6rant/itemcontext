@@ -1,6 +1,6 @@
-package io.github.andrew6rant;
+package io.github.andrew6rant.itemcontext;
 
-import io.github.andrew6rant.api.IItemContextOverride;
+import io.github.andrew6rant.itemcontext.api.IItemContextOverride;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.util.Window;
@@ -18,21 +18,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Predicate;
 
+import static io.github.andrew6rant.itemcontext.config.ClientConfig.*;
 import static net.minecraft.item.ItemStack.areItemsEqual;
 
 // Based on https://github.com/VazkiiMods/Quark/blob/master/src/main/java/vazkii/quark/content/client/module/UsageTickerModule.java
 public class ItemContext {
 
     public static List<TickerElement> elements = new ArrayList<>();
-
-    public static boolean invert = false;
-
-    public static int shiftLeft = 0;
-    public static int shiftRight = 0;
-
-    public static boolean enableMainHand = true;
-    public static boolean enableOffHand = true;
-    public static boolean enableArmor = true;
 
 
     public static void configChanged() {
@@ -57,9 +49,6 @@ public class ItemContext {
 
     public static class TickerElement {
 
-        private static final int MAX_TIME = 60; //Integer.MAX_VALUE
-        private static final int ANIM_TIME = 9; //5
-
         public int liveTicks;
         public final EquipmentSlot slot;
         public ItemStack currStack = ItemStack.EMPTY;
@@ -70,7 +59,7 @@ public class ItemContext {
             this.slot = slot;
         }
 
-        public void tick(PlayerEntity player) {
+        public void tick (PlayerEntity player) {
             ItemStack realStack = getStack(player);
             int count = getStackCount(player, realStack, realStack, false);
 
@@ -133,9 +122,9 @@ public class ItemContext {
                 x += (barWidth / 2f) * mul + index * 20;
                 if (ourSide == Arm.LEFT) {
                     x -= slots * 20;
-                    x += shiftLeft;
+                    x += leftOffset;
                 } else {
-                    x += shiftRight;
+                    x += rightOffset;
                 }
 
                 ItemStack stack = getRenderedStack(player);
