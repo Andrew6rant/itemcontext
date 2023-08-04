@@ -184,8 +184,11 @@ public class ItemContext {
                         total += override.getUsageTickerCountForItem(stackAt, predicate);
                     }
                 }
-
-                val = Math.max(total, displayStack.getCount());
+                 if (fullCount) {
+                     val = Math.max(total, displayStack.getCount());
+                 } else {
+                     val = total - displayStack.getCount();
+                 }
             }
 
             return val;
@@ -198,11 +201,14 @@ public class ItemContext {
         public ItemStack getRenderedStack(PlayerEntity player) {
             ItemStack stack = getStack(player);
             int count = getStackCount(player, stack, stack, true);
+            //System.out.println("countBEFORE: " + count);
             ItemStack logicalStack = getLogicalStack(stack, count, player, true).copy();
             if (logicalStack != stack) {
                 count = getStackCount(player, logicalStack, stack, true);
+                //System.out.println("countMIDDLE: " + count);
             }
             logicalStack.setCount(count);
+            //System.out.println("countAFTER: " + count);
 
             if (logicalStack.isEmpty()) {
                 return ItemStack.EMPTY;

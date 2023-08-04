@@ -1,3 +1,13 @@
 {
-
+  "itemcontext.midnightconfig.invert": "Invert armor display",
+  "itemcontext.midnightconfig.invert.tooltip": "Switch the armor display to the offhand side and the hand display to the mainhand side",
+  "itemcontext.midnightconfig.leftOffset": "Left offset",
+  "itemcontext.midnightconfig.rightOffset": "Right offset",
+  "itemcontext.midnightconfig.enableMainHand": "Enable main hand",
+  "itemcontext.midnightconfig.enableOffHand": "Enable off hand",
+  "itemcontext.midnightconfig.enableArmor": "Enable armor",
+  "itemcontext.midnightconfig.fullCount": "Full Count",
+  "itemcontext.midnightconfig.fullCount.tooltip": "Show the full inventory count.\nSet false to show the inventory count minus the held count",
+  "itemcontext.midnightconfig.MAX_TIME": "Length of time the item context is displayed",
+  "itemcontext.midnightconfig.ANIM_TIME": "Zoom in animation speed"
 }
